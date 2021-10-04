@@ -15,13 +15,13 @@ public class ViewAllOrderPagePOM {
 
 
     @FindBy (xpath = "//h2[normalize-space(.)='List of All Orders']")
-    WebElement header;
+    public WebElement header;
 
-    @FindBy (id = "ctl00_MainContent_btnCheckAll")
-    WebElement checkAllButton;
+    @FindBy (xpath = "//*[@id=\"ctl00_MainContent_btnCheckAll\"]")
+    public WebElement checkAllButton;
 
     @FindBy (xpath =  "//input[@type='checkbox']")
-    WebElement allCheckBoxes;
+    public WebElement allCheckBoxes;
 
     public void ViewAllOrderPage(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -32,9 +32,11 @@ public class ViewAllOrderPagePOM {
 
 
 
+
         try {
 //            WebElement header = driverParam.findElement(By.xpath("//h2[normalize-space(.)='List of All Orders']"));
             WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 2);
+                //wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.valueOf(this.header))));
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h2[normalize-space(.)='List of All Orders']")));
             System.out.println("ELEMENT WAS IDENTIFIED ");
 //            System.out.println("header.isDisplayed() = " + header.isDisplayed());
@@ -49,7 +51,7 @@ public class ViewAllOrderPagePOM {
     }
 
     public void testCheckBoxButton(){
-        this.checkAllButton.click();
+       this.checkAllButton.click();
     }
 
     public void checkAll() {
@@ -81,3 +83,5 @@ public class ViewAllOrderPagePOM {
 
     }
 }
+
+

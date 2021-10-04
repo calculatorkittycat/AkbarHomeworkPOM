@@ -1,5 +1,6 @@
 package com.cybertek.pom;
 
+import com.cybertek.utility.ConfigReader;
 import com.cybertek.utility.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -19,6 +20,9 @@ public class CommonAreaPOM {
 
     @FindBy(xpath = "//ul[@id='ctl00_menu']/li[3]/a")
     public WebElement orderTab;
+
+    @FindBy(xpath = "//div[@class='login_info']")
+    public WebElement afterLoginUsername;
 
     public CommonAreaPOM(){
         PageFactory.initElements(Driver.getDriver(),this);
@@ -41,6 +45,18 @@ public class CommonAreaPOM {
 
         if (tabName.equalsIgnoreCase("Order")) {
             Driver.getDriver().findElement(By.xpath("//ul[@id='ctl00_menu']/li[3]/a")).click();
+        }
+    }
+
+
+    public boolean verifyUserName(){
+
+        if(this.afterLoginUsername.getText().contains(ConfigReader.read("weborder_username"))){
+            return true;
+        }else{
+            System.out.println(afterLoginUsername.getText() + " <-- displayed username");
+            System.out.println(ConfigReader.read("weborder_username" + " <-- actual username"));
+            return false;
         }
     }
 
