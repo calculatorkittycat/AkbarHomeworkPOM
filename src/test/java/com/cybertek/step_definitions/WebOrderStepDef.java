@@ -45,12 +45,12 @@ public class WebOrderStepDef {
         assertTrue(commonAreaPOM.verifyUserName());
     }
 
-    @When("we click {string} tab") //view all products
+    @When("we click View All Products tab {string}") //When we click "View All Products" tab
     public void weClickTab(String tabName) {
         commonAreaPOM.selectSideBarTab(tabName);
     }
 
-    @Then("we should see View All Products page")
+    @Then("we should see View All Products page") //Then we should see View All Products page
     public void weShouldSeeViewAllProductsPage() {
 assertTrue(commonAreaPOM.isAtViewAllProductsPage());
     }
@@ -63,5 +63,15 @@ assertTrue(commonAreaPOM.isAtViewAllProductsPage());
     @Then("we should see View All orders page")
     public void weShouldSeeViewAllOrdersPage() {
         assertTrue(commonAreaPOM.isAtViewAllOrdersPage());
+    }
+
+    @When("we click Orders tab {string}") //When we click Orders tab "Orders"
+    public void weClickOrdersTab(String tabName) {
+        commonAreaPOM.selectSideBarTab(tabName);
+    }
+
+    @When("we click View All Orders tab {string}")
+    public void weClickViewAllOrdersTab(String tabName) {
+        commonAreaPOM.selectSideBarTab(tabName);
     }
 }
