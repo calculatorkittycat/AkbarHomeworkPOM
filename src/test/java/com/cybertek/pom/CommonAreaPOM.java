@@ -60,4 +60,28 @@ public class CommonAreaPOM {
         }
     }
 
+    public boolean isAtViewAllProductsPage(){
+        if(Driver.getDriver().getCurrentUrl().equals("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Products.aspx")){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean isAtOrderPage() {
+        if (Driver.getDriver().getCurrentUrl().equals("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Process.aspx")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isAtViewAllOrdersPage() {
+        if (Driver.getDriver().getCurrentUrl().equals("http://secure.smartbearsoftware.com/samples/TestComplete11/WebOrders/Default.aspx")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

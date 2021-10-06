@@ -83,11 +83,37 @@ public class LoginPagePOM {
         }
     }
 
+    public void loginInvalidPlain(){
+        this.userNameField.sendKeys("WrongUsername");
+        this.passwordField.sendKeys("WrongPassword");
+    }
+
     public void loginPlain(){
         this.userNameField.sendKeys(ConfigReader.read("weborder_username"));
         this.passwordField.sendKeys(ConfigReader.read("weborder_password"));
+        //this.loginButton.click();
+    }
+
+    public void clickLogin(){
         this.loginButton.click();
     }
+
+    public boolean isAtHomePage(){
+        if(this.afterLoginHeader.isDisplayed()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public boolean isAtLoginPage(){
+        if(this.userNameField.isDisplayed()){
+            return true;
+        }else {
+            return false;
+        }
+    }
+
 
     public boolean verifyAtLoginPage(){
         if(this.beforeLoginMsg.isDisplayed()){
@@ -97,6 +123,20 @@ public class LoginPagePOM {
         }
 
     }
+
+    public boolean errorMessageDisplayed(){
+        if (this.errorMsg.isDisplayed()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void loginAddCredentials(String username, String password){
+        this.userNameField.sendKeys(username);
+        this.passwordField.sendKeys(password);
+    }
+
 
 
 

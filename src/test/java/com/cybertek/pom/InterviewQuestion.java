@@ -49,7 +49,7 @@ public class InterviewQuestion  {
 
         Thread.sleep(2000);
         /**
-         * show how to populate text field from config.properties with "World Hello"
+         * show how to populate text field from config.properties with "World Hello" , imagine key is "word"
          */
 
 
