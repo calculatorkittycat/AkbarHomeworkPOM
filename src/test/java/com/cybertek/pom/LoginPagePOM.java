@@ -137,6 +137,10 @@ public class LoginPagePOM {
         this.passwordField.sendKeys(password);
     }
 
+    public void name(){
+
+    }
+
 
 
 
